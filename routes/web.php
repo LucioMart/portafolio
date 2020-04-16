@@ -16,9 +16,9 @@
 });*/
 
 
-Route::get('/', function(){
+/*Route::get('/', function(){
     return "Retomando el Estudio de Laravel despues de varios dias";
-});
+});*/
 
 Route::get('/saludos/{nombre?}', function($nombre = ""){
     return "Bienvenido " . $nombre;
@@ -35,3 +35,15 @@ Route::get('/home', function() {
     echo '<a href="'.route('contactos').'">Contactos 4</a><br>';
     echo '<a href="'.route('contactos').'">Contactos 5</a>';
 });
+
+/*Route::get('/{nombre?}', function($nombre = 'Invitado'){
+    return 'Bienvenido '. $nombre;
+});*/
+
+Route::view('/', 'home')->name('home'); // Forma reducida de declarar una ruta.
+
+Route::view('/about', 'about')->name('about');
+
+Route::view('/portfolio', 'portfolio')->name('portfolio');
+
+Route::view('/contact', 'contact')->name('contact');

@@ -36,7 +36,14 @@ class MessageController extends Controller
     {
        // return "Datos enviados correctamente";
        // return $request->get('content');
-       return request('email');
+       request()->validate([
+           'name' => 'required',
+           'email' => 'required|email',
+           'subject' => 'required',
+           'content' => 'required|min:3'
+        ]);
+
+        return 'Datos enviados con exitos.';
     }
 
     /**

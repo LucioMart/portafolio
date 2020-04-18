@@ -18,7 +18,7 @@
 
     <h1>@yield('tituloEncabezado')</h1>
     <section>
-        @yield('contenido')
+        @yield('content')
     </section>
 </body>
 </html>

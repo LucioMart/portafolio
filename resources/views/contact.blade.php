@@ -3,7 +3,7 @@
 @section('tituloPagina', 'Contact')
 
 @section('tituloEncabezado')
-    Contact
+   {{ __('Contact') }} 
 @endsection
 
 @section('content')

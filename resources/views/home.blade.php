@@ -3,7 +3,7 @@
 @section('tituloPagina', 'Inicio')
 
 @section('tituloEncabezado')
-    Home
+    {{ __('Home') }}
 @endsection
 
 @section('contenido')

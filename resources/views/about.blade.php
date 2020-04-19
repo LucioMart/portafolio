@@ -3,7 +3,7 @@
 @section('tituloPagina', 'About')
 
 @section('tituloEncabezado')
-    About
+    {{ __('About') }}
 @endsection
 
 @section('contenido')

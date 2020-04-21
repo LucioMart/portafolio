@@ -58,6 +58,8 @@ Route::view('/about', 'about')->name('about');
 
 Route::get('/portfolio', 'PortfolioController@index')->name('portfolio');
 
+Route::get('/portfolio/detalle/{id}', 'PortfolioController@show')->name('detalle');
+
 Route::view('/contact', 'contact')->name('contact');
 
 Route::post('/contact', 'MessageController@store');

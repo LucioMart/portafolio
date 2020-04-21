@@ -6,13 +6,13 @@
     {{ __('Portfolio') }}
 @endsection
 
-@section('contenido')
+@section('content')
     
     <ul>
 
-        @forelse($portfolios as $portfolio)
+        @forelse($projects as $project)
 
-            <li>{{ $portfolio['title'] }} <small> {{ $loop->last ? 'Es el ultimo' : '' }} </small></li>
+            <li><a href="/portfolio/detalle/{{ $project->id }}">{{ $project->title }} </a></li>
 
         @empty
 

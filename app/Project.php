@@ -9,8 +9,8 @@ class Project extends Model
 
     protected $fillable = ['title', 'description', 'url'];
 
-    public function getRouteKeyName() {
-        return 'id';
-    }
+    /*public function getRouteKeyName() {
+        return 'title';
+    }*/
 
 }

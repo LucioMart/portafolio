@@ -10,6 +10,16 @@
 
 @section('content')
 
+    @if($errors->any())
+
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+        </ul>
+
+    @endif
+
     <form action="{{ route('projects.store') }}" method="post">
         @csrf
         <label for="">Titulo:</label><br>

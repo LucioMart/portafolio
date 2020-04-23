@@ -56,9 +56,16 @@ Route::view('/about', 'about')->name('about');
 
 //Route::resource('/portfolio', 'PortfolioController');
 
-Route::get('/portfolio', 'PortfolioController@index')->name('portfolio');
+Route::get('/portfolio', 'ProjectController@index')->name('projects.index');
 
-Route::get('/portfolio/detalle/{id}', 'PortfolioController@show')->name('detalle');
+Route::get('/portfolio/crear', 'ProjectController@create')->name('projects.create');
+
+
+Route::post('/portfolio', 'ProjectController@store')->name('projects.store');
+
+
+Route::get('/portfolio/{project}', 'ProjectController@show')->name('projects.show');
+
 
 Route::view('/contact', 'contact')->name('contact');
 

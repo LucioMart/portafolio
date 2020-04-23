@@ -6,7 +6,7 @@ use App\Project;
 
 use Illuminate\Http\Request;
 
-class PortfolioController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $projects = Project::get();
+        $projects = Project::latest()->paginate(2);
 
-        return view('portfolio', compact('projects'));
+        return view('projects.index', compact('projects'));
     }
 
     /**
@@ -27,7 +27,7 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**
@@ -36,9 +36,20 @@ class PortfolioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) //request()
     {
-        //
+       /* $title = $request['title'];
+        $description = $request['description'];
+        $url = $request['url'];*/
+
+        Project::create([
+            /*'title' => $title,
+            'description' => $description,
+            'url' => $url*/  
+            $request->all()
+        ]);
+        
+        return redirect()->route('projects.index');
     }
 
     /**
@@ -49,9 +60,10 @@ class PortfolioController extends Controller
      */
     public function show($id)
     {
-        $project = Project::find($id);
+        $project = Project::findOrFail($id);
 
-        return view('detallePortfolio', compact('project'));
+        return view('projects.show', compact('project'));
+
     }
 
     /**

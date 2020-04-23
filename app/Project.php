@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    //public $table = 'projects';
 
-    public $guarded = [];
+    protected $fillable = ['title', 'description', 'url'];
+
+    public function getRouteKeyName() {
+        return 'id';
+    }
+
 }

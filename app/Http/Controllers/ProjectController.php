@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Project;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\SaveProjectRequest;
 
 class ProjectController extends Controller
 {
@@ -36,18 +37,18 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) //request()
+    public function store(SaveProjectRequest $request) //request()
     {
        /* $title = $request['title'];
         $description = $request['description'];
         $url = $request['url'];*/
 
-        Project::create([
-            /*'title' => $title,
+        Project::create(/*[
+            'title' => $title,
             'description' => $description,
-            'url' => $url*/  
-            $request->all()
-        ]);
+            'url' => $url]*/ 
+            $request->validated()
+        );
         
         return redirect()->route('projects.index');
     }
@@ -72,9 +73,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
-        //
+        return view('projects.edit', compact('project'));
     }
 
     /**
@@ -84,9 +85,17 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Project $project/*Request $request*/, SaveProjectRequest $request)
     {
-        //
+        //project->update([
+        //    'title' => /*$request*/request()->title,
+        //   'description' => /*$request*/request()->description,
+        //    'url' => /*$request*/request()->url
+        //]);
+
+        $project->update($request->validated());
+
+        return redirect()->route('projects.show', $project);
     }
 
     /**

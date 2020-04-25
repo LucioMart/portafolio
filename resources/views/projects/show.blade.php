@@ -12,7 +12,8 @@
 
 @section('content')
 
+
     {{ $project->description }}. <small>Fecha creacion: {{ $project->created_at }}.</small>
-                                <small>Fecha actualizacion: {{ $project->updated_at }}</small>
+                                <small>Fecha actualizacion: {{ $project->updated_at }}</small><a href="{{ route('projects.edit', $project) }}">Editar</a>
 
 @endsection

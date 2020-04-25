@@ -14,7 +14,7 @@ class AddUrlToProjectsTable extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->string('url')->after('description');
+            $table->string('url')->after('description')->nullable();
         });
     }
 

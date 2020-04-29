@@ -8,6 +8,8 @@
 
 @section('content')
 
+@include('partials.session_status')
+
 <button><a href="{{ route('projects.create') }}">Nuevo Projecto</a></button>
     
     <ul>

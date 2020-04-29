@@ -4,6 +4,8 @@
 
 @section('tituloEncabezado', 'Editar el proyecto' )
 
+
+
 @section('content')
 
 @include('partials.validation-errors')

@@ -55,7 +55,7 @@ class MessageController extends Controller
 
        Mail::to($request)->send(new MessageReceived($mensaje));
 
-        return 'Datos enviados con exitos.';
+        return back()->with('status', 'Mensaje enviado con Exito.');
     }
 
     /**

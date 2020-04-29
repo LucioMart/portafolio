@@ -28,13 +28,13 @@ Route::get('/contactame', function(){
     return 'Seccion de contactos';
 })->name('contactos');*/
 
-Route::get('/home', function() {
+/*Route::get('/home', function() {
     echo '<a href="'.route('contactos').'">Contactos 1</a><br>';
     echo '<a href="'.route('contactos').'">Contactos 2</a><br>';
     echo '<a href="'.route('contactos').'">Contactos 3</a><br>';
     echo '<a href="'.route('contactos').'">Contactos 4</a><br>';
     echo '<a href="'.route('contactos').'">Contactos 5</a>';
-});
+});*/
 
 /*Route::get('/{nombre?}', function($nombre = 'Invitado'){
     return 'Bienvenido '. $nombre;
@@ -56,7 +56,9 @@ Route::view('/about', 'about')->name('about');
 
 //Route::resource('/portfolio', 'PortfolioController');
 
-Route::get('/portfolio', 'ProjectController@index')->name('projects.index');
+
+
+/*Route::get('/portfolio', 'ProjectController@index')->name('projects.index');
 
 Route::get('/portfolio/crear', 'ProjectController@create')->name('projects.create');
 
@@ -72,9 +74,18 @@ Route::post('/portfolio', 'ProjectController@store')->name('projects.store');
 Route::get('/portfolio/{project}', 'ProjectController@show')->name('projects.show');
 
 
-Route::delete('/portfolio/{project}', 'ProjectController@destroy')->name('projects.destroy');
+Route::delete('/portfolio/{project}', 'ProjectController@destroy')->name('projects.destroy');*/
+
+Route::resource('portfolio', 'ProjectController')
+->parameters(['portfolio' => 'project'])
+->names('projects')
+->middleware('auth');
 
 
 Route::view('/contact', 'contact')->name('contact');
 
 Route::post('/contact', 'MessageController@store');
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

@@ -6,6 +6,12 @@
     {{ __('Home') }}
 @endsection
 
-@section('contenido')
+@section('content')
+
+@auth()
+    
+    {{ auth()->user()->name }}
+
+@endauth
 
 @endsection

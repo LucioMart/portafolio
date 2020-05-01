@@ -2,21 +2,26 @@
 
 @section('tituloPagina', 'Portfolio')
 
-@section('tituloEncabezado')
-    {{ __('Portfolio') }}
-@endsection
-
 @section('content')
 
-@include('partials.session_status')
+<h1 class="display-4">@lang('Projects')</h1>
 
-<button><a href="{{ route('projects.create') }}">Nuevo Projecto</a></button>
+@auth('')
     
-    <ul>
+    <button><a href="{{ route('projects.create') }}">Nuevo Projecto</a></button>
+
+@endauth
+    
+    <ul class="list-group">
 
         @forelse($projects as $project)
 
-            <li><a href="{{ route('projects.show', $project) }}">{{ $project->title }} </a> </li>
+            <li class="list-group-item {{-- border-0 --}} mb-3 shadow-sm">
+                <a href="{{ route('projects.show', $project) }}">
+                    {{ $project->title }} -
+                    {{ $project->created_at->format('d/m/Y') }}
+                 </a> 
+            </li>
 
         @empty
 

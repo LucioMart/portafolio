@@ -8,8 +8,6 @@
 
 @section('content')
 
-    @include('partials.session_status')
-
     <!--  $errors->first('name')  -->
 
         <div class="container">

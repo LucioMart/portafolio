@@ -26,7 +26,7 @@
 
     </header>
 
-    <main>
+    <main class="py-3">
 
         <h1>@yield('tituloEncabezado')</h1>
         <section>
